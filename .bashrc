@@ -24,6 +24,7 @@ export GOPATH=~/.go
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias sudo='sudo '
 alias las="stat -c '%A %a %n' *"
 alias mkdir="mkdir -pv"
 alias gs="git status"
@@ -37,4 +38,4 @@ alias dot='/usr/bin/git --git-dir=$HOME/.dot/ --work-tree=$HOME'
 alias pro="cd ~/projects/"
 alias pkg="cd ~/packages"
 
-rpg r
+~/.bin/rpg r

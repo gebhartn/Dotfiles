@@ -16,6 +16,7 @@ lc=${bc}${c6}       # labels
 tc=${bc}${c7}       # text
 
 cat <<EOF
+
 ${lc}OS:${rc}       ${tc}${OS}${rc}
 ${lc}PACKAGES:${rc} ${tc}${PACKAGES}${rc}
 EOF
