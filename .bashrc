@@ -5,7 +5,6 @@
 #
 
 [ -f ~/.cache/rpg/colors ] && . ~/.cache/rpg/colors
-[ -f ~/.config/environment/mopidy ] && . ~/.config/environment/mopidy
 
 export PS1="-> "
 export PLUG=~/.local/share/nvim/site/pack/
