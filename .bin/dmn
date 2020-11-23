@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# shellcheck disable=SC1090
+[ -f ~/.cache/rpg/colors ] && . ~/.cache/rpg/colors
+
+dmenu_run -l 1 \
+    -nb "${color0:=#777777}" \
+    -nf "${color15:=#000000}" \
+    -sb "${color15:=#777777}" \
+    -sf "${color0:=#FFFFFF}" \
+    -fn "Code New Roman:pixelsize=32"

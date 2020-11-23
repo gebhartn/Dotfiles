@@ -1,0 +1,32 @@
+! vim:ft=xdefaults:
+
+Xft.dpi: 192
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
+xterm*termName: xterm-256color
+xterm*cursorColor: LightGreen
+xterm*internalBorder: 120
+xterm*scaleHeight: 1.4
+xterm*geometry: 62x14
+xterm*borderWidth: 0
+
+xterm*selectToClipboard: true
+xterm*trimSelection: true
+xterm*visualBell: false
+xterm*renderFont: true
+xterm*scrollBar: false
+xterm*wideChars: true
+xterm*utf8: true
+
+xterm.vt100.translations: #override \n\
+    Ctrl Shift <KeyPress> v:insert-selection(CLIPBOARD) \n\
+    Ctrl Shift <KeyPress> c:select-set(CLIPBOARD)
+
+xterm*faceNameDoublesize: xft:Code New Roman:pixelsize=34:antialias=true
+xterm*faceName: xft:Code New Roman:pixelsize=34:antialias=true
+xterm*wideFont: xft:Code New Roman:pixelsize=34:antialias=true

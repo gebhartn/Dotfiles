@@ -1,0 +1,31 @@
+ncmpcpp_directory = "~/.config/ncmpcpp"
+
+mpd_music_dir = "~/media/music"
+
+lyrics_directory = "~/media/lyrics"
+
+mpd_host = "127.0.0.1"
+
+mpd_port = "6600"
+
+lines_scrolled = "1"
+
+message_delay_time = "3"
+
+playlist_display_mode = "classic"
+
+progressbar_elapsed_color = "white"
+
+progressbar_color = "black"
+
+progressbar_look = "─ ─"
+
+header_visibility = "no"
+
+statusbar_visibility = "no"
+
+now_playing_prefix = "$b"
+
+now_playing_suffix = "$8$/b"
+
+song_list_format = "$5%t $R$8%a"

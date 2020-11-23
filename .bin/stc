@@ -1,0 +1,7 @@
+#!/bin/sh
+
+#
+# pss - screenshot to clipboard
+#
+
+import -window root png:- | xclip -selection clipboard -t image/png

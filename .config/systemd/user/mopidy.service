@@ -1,0 +1,10 @@
+[Unit]
+Description=Mopidy music server
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/mopidy --config ~/.config/mopidy/mopidy.conf:~/.config/environment/mopidy.conf
+
+[Install]
+WantedBy=multi-user.target
+
