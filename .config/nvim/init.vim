@@ -129,15 +129,9 @@ augroup filespecific
   au FileType python setl ts=4
 augroup END
 
-hi User1 ctermfg=0 ctermbg=114
+colorscheme cs
 
-hi User2 ctermfg=114
-
-hi VertSplit ctermbg=114
-
-hi PmenuSel ctermfg=0 ctermbg=114
-
-hi Pmenu ctermfg=114 ctermbg=0
+hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
 
 hi link CocFloating markdown
 
