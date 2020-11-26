@@ -1,10 +1,13 @@
 [Unit]
-Description=Mopidy music server
-After=network.target
+Description=Mopidy
 
 [Service]
+Environment=STNORESTART=yes
 ExecStart=/usr/bin/mopidy --config ~/.config/mopidy/mopidy.conf:~/.config/environment/mopidy.conf
+Restart=on-failure
+RestartPreventExitStatus=1
+SuccessExitStatus=2
+RestartForceExitStatus=3 4
 
 [Install]
-WantedBy=multi-user.target
-
+WantedBy=default.target
