@@ -19,6 +19,7 @@ export XDG_DOCUMENTS_DIR=~/media/documents
 export EDITOR="nvim"
 export VISUAL="nvim"
 export DRT_PATH=~/projects
+export PAP_DIR=~/media/palettes
 export GOPATH=~/.go
 
 alias ..='cd ..'
@@ -38,4 +39,4 @@ alias dot='/usr/bin/git --git-dir=$HOME/.dot/ --work-tree=$HOME'
 alias pro="cd ~/projects/"
 alias pkg="cd ~/packages"
 
-~/.bin/rpg r
+~/.bin/pap r
