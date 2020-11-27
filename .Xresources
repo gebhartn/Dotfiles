@@ -12,7 +12,7 @@ xterm*internalBorder: 120
 xterm*cursorColor: *XtDefaultForeground
 xterm*scaleHeight: 1.2
 xterm*geometry: 62x14
-xterm*borderWidth: 0
+!xterm*borderWidth: 0
 
 xterm*selectToClipboard: true
 xterm*trimSelection: true

@@ -131,7 +131,7 @@ augroup END
 
 colorscheme cs
 
-hi MatchParen cterm=bold ctermbg=none ctermfg=magenta
+hi MatchParen cterm=bold ctermbg=none ctermfg=none
 
 hi link CocFloating markdown
 

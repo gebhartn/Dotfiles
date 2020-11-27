@@ -4,7 +4,7 @@
 # ~/.bashrc
 #
 
-[ -f ~/.cache/rpg/colors ] && . ~/.cache/rpg/colors
+[ -f ~/.cache/pap/colors ] && . ~/.cache/pap/colors
 
 export PS1="-> "
 export PLUG=~/.local/share/nvim/site/pack/
@@ -34,6 +34,7 @@ alias glog="git log --pretty=format:'%n%ar %n%Cred%h %Cblue%an <%ae> %n%Cgreen%s
 alias glogme="glog --author='\(Nicholas\)\|\(gebhartn\)'"
 alias vim="nvim"
 alias fuck='sudo $(history -p !!)'
+alias orphans='sudo pacman -Qtdq | sudo pacman -Rns -'
 alias ncmpcpp='ncmpcpp -b ~/.config/ncmpcpp/bindings'
 alias dot='/usr/bin/git --git-dir=$HOME/.dot/ --work-tree=$HOME'
 alias pro="cd ~/projects/"
