@@ -37,7 +37,7 @@ end
 
 function M.setup(lsp_opts)
     lsp.efm.setup {
-	capabilities = lsp_opts.capabilities,
+        capabilities = lsp_opts.capabilities,
         on_attach = function(client)
             client.resolved_capabilities.document_formatting = true
             lsp_opts.on_attach(client)

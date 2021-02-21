@@ -1,5 +1,3 @@
-local utils = require 'gebhartn.utils'
-
 vim.cmd 'filetype plugin indent on'
 
 -- Completion
@@ -13,11 +11,11 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Indents
-vim.o.shiftwidth = 4
-vim.o.softtabstop = 4
-vim.o.tabstop = 4
-vim.o.expandtab = true
-vim.o.autoindent = true
+vim.bo.shiftwidth = 4
+vim.bo.softtabstop = 4
+vim.bo.tabstop = 4
+vim.bo.expandtab = true
+vim.bo.autoindent = true
 
 -- Line options
 vim.o.showmatch = true
@@ -56,10 +54,10 @@ vim.o.maxmempattern = 20000
 vim.o.magic = true
 
 -- List characters
-vim.o.list = true
-vim.o.listchars = 'tab:»\\ ,extends:›,precedes:‹,nbsp:·,trail:·'
-vim.o.fillchars = vim.o.fillchars .. string.format('vert:%s', utils.tt' ,')
-vim.o.fillchars = vim.o.fillchars .. string.format('eob:%s', utils.tt' ,')
+vim.wo.list = true
+vim.o.listchars = string.format('tab:»%sextends:›,precedes:‹,nbsp:·,trail:·', ' ,')
+vim.o.fillchars = vim.o.fillchars .. string.format('vert:%s', ' ,')
+vim.o.fillchars = vim.o.fillchars .. string.format('eob:%s', ' ,')
 
 -- System clipboard
 vim.o.clipboard = vim.o.clipboard .. 'unnamedplus'
