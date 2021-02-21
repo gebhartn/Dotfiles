@@ -41,7 +41,7 @@ function M.tmap(input, output) map('t', input, output) end
 
 function M.reload_config()
     for k, v in pairs(package.loaded) do
-        if string.match(k, "^creativenull") then
+        if string.match(k, "^gebhartn") then
             package.loaded[k] = nil
         end
     end
