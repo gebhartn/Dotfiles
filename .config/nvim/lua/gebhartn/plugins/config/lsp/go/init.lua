@@ -22,23 +22,29 @@ function goimports(timeoutms)
 end
 
 function M.setup(lsp_opts)
-	lsp.gopls.setup { 
-		capabilities = lsp_opts.capabilities,
-		on_attach = function(client)
-		vim.cmd[[autocmd BufWritePre *.go lua goimports(1000)]]
-		lsp_opts.on_attach(client)
-	    end,
-	    cmd = {"gopls", "serve"},
-	    settings = {
-		hoverKind = "FullDocumentation",
-		gopls = {
-		    analyses = {
-			unusedparams = true,
-		    },
-		    staticcheck = true,
-		},
-	    }
-	}
+    lsp.gopls.setup {
+        capabilities = lsp_opts.capabilities,
+        on_attach = function(client)
+            lsp_opts.on_attach(client)
+
+            vim.cmd [[augroup Format]]
+            vim.cmd [[autocmd! * <buffer>]]
+            vim.cmd [[autocmd BufWritePost <buffer> lua goimports(1000)]]
+            vim.cmd [[augroup END]]
+
+
+        end,
+        cmd = {"gopls", "serve"},
+        settings = {
+        hoverKind = "FullDocumentation",
+        gopls = {
+            analyses = {
+                unusedparams = true,
+            },
+                staticcheck = true,
+            },
+        }
+    }
 end
 
 return M

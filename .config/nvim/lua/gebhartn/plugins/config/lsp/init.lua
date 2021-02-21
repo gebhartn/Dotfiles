@@ -25,10 +25,10 @@ local on_attach = function(client)
         vim.cmd [[augroup END]]
     end
 
-    vim.cmd 'augroup lsp_diagnostics_view'
-    vim.cmd 'au!'
+    vim.cmd [[augroup HoverDiagnostics']]
+    vim.cmd [[au!]]
     vim.cmd [[au CursorHold <buffer> lua vim.lsp.diagnostic.show_line_diagnostics()]]
-    vim.cmd 'augroup end'
+    vim.cmd [[augroup END]]
 end
 
 -- Diagnostics
