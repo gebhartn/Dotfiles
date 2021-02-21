@@ -18,7 +18,6 @@ vim.o.softtabstop = 4
 vim.o.tabstop = 4
 vim.o.expandtab = true
 vim.o.autoindent = true
-vim.o.smartindent = true
 
 -- Line options
 vim.o.showmatch = true
@@ -30,6 +29,7 @@ vim.o.lazyredraw = true
 vim.o.ruler = true
 vim.o.showmode = false
 vim.o.laststatus = 2
+vim.o.statusline = [[%!luaeval("require'gebhartn.statusline'.render()")]]
 
 -- Better display
 vim.wo.signcolumn = 'no'
@@ -66,3 +66,5 @@ vim.o.clipboard = vim.o.clipboard .. 'unnamedplus'
 
 vim.o.wrap = false
 vim.o.spell = false
+
+vim.g.fzf_layout = { down = '40%' }

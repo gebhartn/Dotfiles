@@ -5,7 +5,7 @@ local prettier = require (current_path .. '.formatters.prettier')
 local lsp = require 'lspconfig'
 
 local format_options_prettier = {
-    tabWidth = 2,
+    tabWidth = 4,
     singleQuote = true,
     trailingComma = "all",
     arrowParens = "avoid",
@@ -37,6 +37,7 @@ end
 
 function M.setup(lsp_opts)
     lsp.efm.setup {
+	capabilities = lsp_opts.capabilities,
         on_attach = function(client)
             client.resolved_capabilities.document_formatting = true
             lsp_opts.on_attach(client)

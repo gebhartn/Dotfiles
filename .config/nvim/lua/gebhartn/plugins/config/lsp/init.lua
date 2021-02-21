@@ -2,6 +2,7 @@ local current_path = (...):gsub('%.init$', '')
 
 local completion = require 'completion'
 local lsp = require 'lspconfig'
+local lsp_status = require 'lsp-status'
 local utils = require 'gebhartn.utils'
 
 _G.formatting = function()
@@ -15,6 +16,7 @@ local on_attach = function(client)
     print('Attached to ' .. client.name)
 
     completion.on_attach(client)
+    lsp_status.on_attach(client)
 
     if client.resolved_capabilities.document_formatting then
         vim.cmd [[augroup Format]]
@@ -40,19 +42,29 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
 -- Typescript
 require (current_path .. '.tsserver').setup {
     on_attach = on_attach,
+    capabilities = lsp_status.capabilities,
 }
 
 -- Rust
 require (current_path .. '.rust').setup {
     on_attach = on_attach,
+    capabilities = lsp_status.capabilities,
 }
 
 -- Golang
 require (current_path .. '.go').setup {
     on_attach = on_attach,
+    capabilities = lsp_status.capabilities,
+}
+
+-- GraphQL
+require (current_path .. '.graphql').setup {
+    on_attach = on_attach,
+    capabilities = lsp_status.capabilities,
 }
 
 -- Linting
 require (current_path .. '.efm').setup {
     on_attach = on_attach,
+    capabilities = lsp_status.capabilities,
 }

@@ -4,7 +4,7 @@ local M = {}
 
 function M.setup(lsp_opts)
 	lsp.tsserver.setup {
-	    capabilities = capabilities,
+	    capabilities = lsp_opts.capabilities,
 	    on_attach = function(client)
 		if client.config.flags then
 		    client.config.flags.allow_incremental_sync = true

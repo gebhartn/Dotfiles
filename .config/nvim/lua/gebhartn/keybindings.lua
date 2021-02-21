@@ -37,3 +37,11 @@ utils.nnoremaps('K', '<cmd>lua vim.lsp.buf.hover()<CR>')
 utils.nnoremaps('qf', '<cmd>lua vim.lsp.buf.code_action()<CR>')
 utils.nnoremaps('<leader>le', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>')
 utils.nnoremaps('gn', '<cmd>lua vim.lsp.buf.rename()<CR>')
+
+-- Fuzzyfinding
+utils.nnoremap('<C-p>', ':GFiles<CR>')
+utils.nnoremap('<C-g>', ':Ag<CR>')
+
+-- Intellisense
+utils.iexnoremap('<Enter>', 'v:lua.smart_enter()', { expr = true, noremap = true })
+utils.iexnoremap('<Tab>', 'v:lua.smart_tab()', { expr = true, noremap = true })

@@ -1,7 +1,7 @@
 local M = {}
 
-local function map(type, input, output)
-    vim.api.nvim_set_keymap(type, input, output, {})
+local function map(type, input, output, options)
+    vim.api.nvim_set_keymap(type, input, output, options)
 end
 
 local function noremap(type, input, output)
@@ -39,6 +39,9 @@ function M.vmap(input, output) map('v', input, output) end
 function M.tmap(input, output) map('t', input, output) end
 
 
+function M.iexnoremap(input, output) map('i', input, output, { expr = true, noremap = true }) end
+
+
 function M.reload_config()
     for k, v in pairs(package.loaded) do
         if string.match(k, "^gebhartn") then
@@ -61,6 +64,12 @@ function M.tt(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
+function _G.smart_tab()
+    return vim.fn.pumvisible() == 1 and M.tt'<C-n>' or M.tt'<Tab>'
+end
+
+function _G.smart_enter()
+    return vim.fn.pumvisible() == 1 and M.tt'<C-y>' or M.tt'<CR>'
+end
+
 return M
-
-

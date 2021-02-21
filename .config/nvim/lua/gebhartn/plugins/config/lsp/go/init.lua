@@ -23,7 +23,8 @@ end
 
 function M.setup(lsp_opts)
 	lsp.gopls.setup { 
-	    on_attach = function(client)
+		capabilities = lsp_opts.capabilities,
+		on_attach = function(client)
 		vim.cmd[[autocmd BufWritePre *.go lua goimports(1000)]]
 		lsp_opts.on_attach(client)
 	    end,

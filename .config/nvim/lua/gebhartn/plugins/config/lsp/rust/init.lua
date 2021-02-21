@@ -5,6 +5,7 @@ local M = {}
 function M.setup(lsp_opts)
 	lsp.rust_analyzer.setup({
 	    on_attach = lsp_opts.on_attach,
+	    capabilities = lsp_opts.capabilities,
 	    settings = {
 		["rust-analyzer"] = {
 		    assist = {
