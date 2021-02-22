@@ -8,29 +8,29 @@ In addition to the globally installed language servers (all of which are present
 
 ## Plugins
 
-All of my plugins are managed by the native neovim package manager, but at the time of writing I am using the following:
+All of my plugins are managed by the native neovim package manager so their inclusion is not so obvious, but at the time of writing I am using the following:
 
-- completion-nvim
-- ~~fzf (and fzf.nvim)~~ telescope.nvim (plenary and popup are dependencies)
-- lsp-status.nvim
-- nvim-lspconfig
-- nvim-treesitter
-- vim-commentary
-- vim-surround
-- vim-noctu (colorscheme)
+- completion-nvim [code completion]
+- ~~fzf (and fzf.nvim)~~ telescope.nvim (plenary and popup are dependencies) [fuzzyfinder]
+- lsp-status.nvim [status line integration]
+- nvim-lspconfig [lsp core configurations]
+- nvim-treesitter [syntax highlighting]
+- vim-commentary [filetype specific commenting rules]
+- vim-surround [wrap things in quotes, tags, etc.]
+- vim-noctu [colorscheme]
 
 ### How to manage plugins this way
 
-I use some bash scripts to manage this, define a $PLUG variable in your shrc and use git submodules to manage your intall/updates
+You can read more about this with `:h packages`
+
+I use some bash scripts to manage my plugins, define a $PLUG variable in your shrc and use git submodules to manage your intall/updates
 
 An example $PLUG variable:
 
-in ~/.bashrc:
+in your ~/.[shell]rc:
 ```bash
-export PLUG='/home/username/.local/share/nvim/site/pack/'
+export PLUG='~/.local/share/nvim/site/pack/'
 ```
-
-You can read more about this with `:h packages`
 
 To install a new plugin:
 ```bash
@@ -105,12 +105,12 @@ main() {
 main
 ```
 
-You'll have to initialize a git repository in the $PLUG directory before these will work
+You'll have to initialize a git repository in the $PLUG directory before these scripts will work
 
 
 ## TODO
 - ~~sumneko's language server doesn't work but it's not like I care~~
 - efm is basically just a glorified wrapper around eslint/prettier, should i even be using this?
     - as an aside, the ts language server is horrible and has cracked native linting/configuration defaults that need to be explicitly disabled
-- hardly using the lsp-status diagnostics, might be a better way
+- hardly using the lsp-status diagnostics, might be a better way to get this info
 - efm seems to hang when exiting typescript projects
