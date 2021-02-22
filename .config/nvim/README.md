@@ -18,3 +18,9 @@ All of my plugins are managed by the native neovim package manager, but at the t
 - vim-commentary
 - vim-surround
 - vim-noctu (colorscheme)
+
+## TODO
+- sumneko's language server doesn't work but it's not like I care
+- efm is basically just a glorified wrapper around eslint/prettier
+- hardly using the lsp-status diagnostics, might be a better way
+- efm seems to hang when exiting typescript projects
