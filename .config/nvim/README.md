@@ -23,6 +23,15 @@ All of my plugins are managed by the native neovim package manager, but at the t
 
 I use some bash scripts to manage this, define a $PLUG variable in your shrc and use git submodules to manage your intall/updates
 
+An example $PLUG variable:
+
+in ~/.bashrc:
+```bash
+export PLUG='/home/username/.local/share/nvim/site/pack/'
+```
+
+You can read more about this with `:h packages`
+
 To install a new plugin:
 ```bash
 #!/bin/sh
