@@ -1,6 +1,8 @@
 local lsp_status = require 'lsp-status'
+
 local M = {}
 
+-- Current mode
 local function cursor_mode()
     local mode_map = {
         ['n'] = 'normal',
@@ -20,23 +22,19 @@ local function cursor_mode()
     return string.format(' %s ', current_mode)
 end
 
+-- File name
 local function filename()
     local bufname = vim.fn.expand('%:t')
-
-    if bufname == '' then
-        return ''
-    end
-
-    return string.format('%s ', bufname)
+    return bufname and string.format('%s ', bufname) or ''
 end
 
+-- Linter status
 local function lsp()
     local diagnostics = lsp_status.diagnostics()
-    if diagnostics.errors > 0 or diagnostics.warnings > 0 then
-        return string.format('LSP %d %d ', diagnostics.errors, diagnostics.warnings)
-    else
-        return 'LSP '
-    end
+    local result = string.format('%d %d ', diagnostics.errors, diagnostics.warnings)
+    local should_count = diagnostics.errors > 0 or diagnostics.warnings > 0
+
+    return should_count and result or 'LSP '
 end
 
 -- Render the statusline
@@ -44,9 +42,9 @@ function M.render()
     local status = ''
 
     -- left side
-    status = status .. '%1*'
+    status = status .. '%#DiffDelete#'
     status = status .. cursor_mode()
-    status = status .. '%7*'
+    status = status .. '%#NonText# '
     status = status .. filename()
     status = status .. '%8*' .. ' '
     status = status .. '%*%-m %-r'
@@ -54,8 +52,7 @@ function M.render()
     -- right side
     status = status .. '%='
     status = status .. ' %l/%L '
-    status = status .. '%9*'
-    status = status .. '%3* '
+    status = status .. '%#TermCursor# '
     status = status .. lsp() .. '%*'
 
     return status

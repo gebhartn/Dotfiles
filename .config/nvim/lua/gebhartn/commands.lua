@@ -1,3 +1,4 @@
+-- Quickly check configuration
 vim.cmd 'command! Config edit $MYVIMRC'
 vim.cmd [[command! ConfigReload lua require'gebhartn.utils'.reload_config()]]
 

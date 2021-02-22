@@ -39,9 +39,10 @@ utils.nnoremaps('<leader>le', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>')
 utils.nnoremaps('gn', '<cmd>lua vim.lsp.buf.rename()<CR>')
 
 -- Fuzzyfinding
-utils.nnoremap('<C-p>', ':GFiles<CR>')
-utils.nnoremap('<C-g>', ':Ag<CR>')
+utils.nnoremap('<C-p>', [[<cmd>lua require'gebhartn.plugins.config.telescope'.git_files()<CR>]])
+utils.nnoremap('<C-t>', [[<cmd>lua require'gebhartn.plugins.config.telescope'.find_files()<CR>]])
+utils.nnoremap('<C-g>', [[<cmd>lua require'gebhartn.plugins.config.telescope'.live_grep()<CR>]])
 
--- Intellisense
+-- Completion
 utils.iexnoremap('<Enter>', 'v:lua.smart_enter()', { expr = true, noremap = true })
 utils.iexnoremap('<Tab>', 'v:lua.smart_tab()', { expr = true, noremap = true })

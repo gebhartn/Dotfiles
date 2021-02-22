@@ -6,11 +6,13 @@ function M.setup(lsp_opts)
     lsp.tsserver.setup {
         capabilities = lsp_opts.capabilities,
         on_attach = function(client)
-        if client.config.flags then
-            client.config.flags.allow_incremental_sync = true
-        end
-        client.resolved_capabilities.document_formatting = false
-        lsp_opts.on_attach(client)
+            if client.config.flags then
+                client.config.flags.allow_incremental_sync = true
+            end
+
+            -- tsserver conflicts with locally installed linters
+            client.resolved_capabilities.document_formatting = false
+            lsp_opts.on_attach(client)
         end
     }
 end

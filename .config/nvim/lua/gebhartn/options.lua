@@ -62,7 +62,7 @@ vim.o.fillchars = vim.o.fillchars .. string.format('eob:%s', ' ,')
 -- System clipboard
 vim.o.clipboard = vim.o.clipboard .. 'unnamedplus'
 
-vim.o.wrap = false
+-- Misc
+vim.wo.wrap = false
 vim.o.spell = false
-
-vim.g.fzf_layout = { down = '40%' }
+vim.wo.number = true

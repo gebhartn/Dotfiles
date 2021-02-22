@@ -5,12 +5,6 @@ local lsp = require 'lspconfig'
 local lsp_status = require 'lsp-status'
 local utils = require 'gebhartn.utils'
 
-_G.formatting = function()
-    if not vim.g[string.format("format_disabled_%s", vim.bo.filetype)] then
-        vim.lsp.buf.formatting(vim.g[string.format("format_options_%s", vim.bo.filetype)] or {})
-    end
-end
-
 -- Shared on_attach configuration
 local on_attach = function(client)
     print('Attached to ' .. client.name)
@@ -59,6 +53,12 @@ require (current_path .. '.go').setup {
 
 -- GraphQL
 require (current_path .. '.graphql').setup {
+    on_attach = on_attach,
+    capabilities = lsp_status.capabilities,
+}
+
+-- Lua
+require (current_path .. '.sumneko_lua').setup {
     on_attach = on_attach,
     capabilities = lsp_status.capabilities,
 }

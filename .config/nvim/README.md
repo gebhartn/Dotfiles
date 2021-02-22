@@ -11,7 +11,7 @@ In addition to the globally installed language servers (all of which are present
 All of my plugins are managed by the native neovim package manager, but at the time of writing I am using the following:
 
 - completion-nvim
-- fzf (and fzf.nvim)
+- ~~fzf (and fzf.nvim)~~ telescope.nvim (plenary and popup are dependencies)
 - lsp-status.nvim
 - nvim-lspconfig
 - nvim-treesitter

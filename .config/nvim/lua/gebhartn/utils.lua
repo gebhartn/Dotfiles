@@ -72,7 +72,8 @@ function _G.smart_enter()
     return vim.fn.pumvisible() == 1 and M.tt'<C-y>' or M.tt'<CR>'
 end
 
+function _G.formatting()
+    vim.lsp.buf.formatting(vim.g[string.format("format_options_%s", vim.bo.filetype)] or {})
+end
+
 return M
-
-
-
