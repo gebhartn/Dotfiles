@@ -30,6 +30,8 @@ function M.setup(lsp_opts)
             vim.cmd [[autocmd! * <buffer>]]
             vim.cmd [[autocmd BufWritePost <buffer> lua goimports(1000)]]
             vim.cmd [[augroup END]]
+
+            vim.wo.list = false
         end,
         cmd = {"gopls", "serve"},
         settings = {

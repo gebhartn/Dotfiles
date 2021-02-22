@@ -12,6 +12,8 @@ local function snoremap(type, input, output)
     vim.api.nvim_set_keymap(type, input, output, { silent = true })
 end
 
+M.map = map
+
 function M.nnoremap(input, output) noremap('n', input, output) end
 
 function M.inoremap(input, output) noremap('i', input, output) end

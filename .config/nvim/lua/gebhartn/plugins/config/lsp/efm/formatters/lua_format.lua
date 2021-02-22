@@ -1,4 +1,4 @@
 return {
-	formatCommand = 'lua-format -i',
-	formatStdin = true
+    formatCommand = 'luafmt ${-i:tabWidth} --stdin',
+    formatStdin = true
 }

@@ -55,9 +55,8 @@ vim.o.magic = true
 
 -- List characters
 vim.wo.list = true
-vim.o.listchars = string.format('tab:»%sextends:›,precedes:‹,nbsp:·,trail:·', ' ,')
-vim.o.fillchars = vim.o.fillchars .. string.format('vert:%s', ' ,')
-vim.o.fillchars = vim.o.fillchars .. string.format('eob:%s', ' ,')
+vim.o.listchars = string.format('tab:» ,extends:›,precedes:‹,nbsp:·,trail:·')
+vim.o.fillchars = vim.o.fillchars .. string.format('vert: ,eob: ')
 
 -- System clipboard
 vim.o.clipboard = vim.o.clipboard .. 'unnamedplus'

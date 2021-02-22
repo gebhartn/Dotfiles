@@ -44,5 +44,14 @@ utils.nnoremap('<C-t>', [[<cmd>lua require'gebhartn.plugins.config.telescope'.fi
 utils.nnoremap('<C-g>', [[<cmd>lua require'gebhartn.plugins.config.telescope'.live_grep()<CR>]])
 
 -- Completion
-utils.iexnoremap('<Enter>', 'v:lua.smart_enter()', { expr = true, noremap = true })
-utils.iexnoremap('<Tab>', 'v:lua.smart_tab()', { expr = true, noremap = true })
+utils.iexnoremap('<Enter>', 'v:lua.smart_enter()')
+utils.iexnoremap('<Tab>', 'v:lua.smart_tab()')
+
+-- NERDTree
+utils.map('', '<C-n>', ':NERDTreeToggle<CR>', {})
+
+-- Create a new file adjacent to current buffer
+utils.nnoremap('<leader>n', ':e <C-R>=expand("%:p:h") . "/" <CR>')
+
+-- Ends my suffering
+utils.nnoremap('q:', ':q')

@@ -17,6 +17,7 @@ vim.g.format_options_typescript = format_options_prettier
 vim.g.format_options_javascript = format_options_prettier
 vim.g.format_options_typescriptreact = format_options_prettier
 vim.g.format_options_javascriptreact = format_options_prettier
+vim.g.json = format_options_prettier
 
 local M = {}
 
@@ -42,12 +43,14 @@ function M.setup(lsp_opts)
             lsp_opts.on_attach(client)
         end,
         init_options = {documentFormatting = true},
+        rootMarkers = {'.git/'},
         root_dir = function()
             if not eslint_config_exists() then return nil end
             return vim.fn.getcwd()
         end,
         settings = {
             languages = {
+                json = {prettier},
                 typescript = {prettier, eslint},
                 javascript = {prettier, eslint},
                 typescriptreact = {prettier, eslint},
@@ -57,10 +60,6 @@ function M.setup(lsp_opts)
                 lua = {luafmt},
             }
         },
-        filetypes = {
-            "javascript", "javascriptreact", "javascript.jsx", "typescript",
-            "typescript.tsx", "typescriptreact", "lua"
-        }
     }
 end
 

@@ -4,9 +4,9 @@ vim.cmd [[au!]]
 vim.cmd [[au TextYankPost * silent! lua vim.highlight.on_yank { higroup = 'Search', timeout = 300 }]]
 vim.cmd [[augroup END]]
 
-
 -- Trim hanging whitespace
-vim.cmd [[augroup trim_whitespace]]
-vim.cmd [[au!]]
 vim.cmd [[au BufWritePre * %s/\s\+$//e]]
-vim.cmd [[augroup END]]
+
+-- Start NERDTree when vim is started without file arguments
+vim.cmd [[autocmd StdinReadPre * lua vim.s.std_in = 1]]
+vim.cmd [[autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif]]
