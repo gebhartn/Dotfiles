@@ -5,44 +5,66 @@ local function map(type, input, output, options)
 end
 
 local function noremap(type, input, output)
-    vim.api.nvim_set_keymap(type, input, output, { noremap = true })
+    vim.api.nvim_set_keymap(type, input, output, {noremap = true})
 end
 
 local function snoremap(type, input, output)
-    vim.api.nvim_set_keymap(type, input, output, { silent = true })
+    vim.api.nvim_set_keymap(type, input, output, {silent = true})
 end
 
 M.map = map
 
-function M.nnoremap(input, output) noremap('n', input, output) end
+function M.nnoremap(input, output)
+    noremap("n", input, output)
+end
 
-function M.inoremap(input, output) noremap('i', input, output) end
+function M.inoremap(input, output)
+    noremap("i", input, output)
+end
 
-function M.vnoremap(input, output) noremap('v', input, output) end
+function M.vnoremap(input, output)
+    noremap("v", input, output)
+end
 
-function M.tnoremap(input, output) noremap('t', input, output) end
+function M.tnoremap(input, output)
+    noremap("t", input, output)
+end
 
+function M.nnoremaps(input, output)
+    snoremap("n", input, output)
+end
 
-function M.nnoremaps(input, output) snoremap('n', input, output) end
+function M.inoremaps(input, output)
+    snoremap("i", input, output)
+end
 
-function M.inoremaps(input, output) snoremap('i', input, output) end
+function M.vnoremaps(input, output)
+    snoremap("v", input, output)
+end
 
-function M.vnoremaps(input, output) snoremap('v', input, output) end
+function M.tnoremaps(input, output)
+    snoremap("t", input, output)
+end
 
-function M.tnoremaps(input, output) snoremap('t', input, output) end
+function M.nmap(input, output)
+    map("n", input, output)
+end
 
+function M.imap(input, output)
+    map("i", input, output)
+end
 
-function M.nmap(input, output) map('n', input, output) end
+function M.vmap(input, output)
+    map("v", input, output)
+end
 
-function M.imap(input, output) map('i', input, output) end
+function M.tmap(input, output)
+    map("t", input, output)
+end
 
-function M.vmap(input, output) map('v', input, output) end
-
-function M.tmap(input, output) map('t', input, output) end
-
-
-function M.iexnoremap(input, output) map('i', input, output, { expr = true, noremap = true }) end
-
+function M.iexnoremap(input, output)
+    map("i", input, output, {expr = true, noremap = true})
+end
 
 function M.reload_config()
     for k, v in pairs(package.loaded) do
@@ -51,7 +73,7 @@ function M.reload_config()
         end
     end
 
-    vim.cmd 'luafile $MYVIMRC'
+    vim.cmd "luafile $MYVIMRC"
 end
 
 function M.toggle_conceal()
@@ -67,15 +89,17 @@ function M.tt(str)
 end
 
 function _G.smart_tab()
-    return vim.fn.pumvisible() == 1 and M.tt'<C-n>' or M.tt'<Tab>'
+    return vim.fn.pumvisible() == 1 and M.tt "<C-n>" or M.tt "<Tab>"
 end
 
 function _G.smart_enter()
-    return vim.fn.pumvisible() == 1 and M.tt'<C-y>' or M.tt'<CR>'
+    return vim.fn.pumvisible() == 1 and M.tt "<C-y>" or M.tt "<CR>"
 end
 
 function _G.formatting()
-    vim.lsp.buf.formatting(vim.g[string.format("format_options_%s", vim.bo.filetype)] or {})
+    vim.lsp.buf.formatting(
+        vim.g[string.format("format_options_%s", vim.bo.filetype)] or {}
+    )
 end
 
 return M

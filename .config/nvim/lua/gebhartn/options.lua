@@ -1,8 +1,8 @@
-vim.cmd 'filetype plugin indent on'
+vim.cmd "filetype plugin indent on"
 
 -- Completion
-vim.o.completeopt = 'menuone,noinsert'
-vim.o.shortmess = vim.o.shortmess .. 'c'
+vim.o.completeopt = "menuone,noinsert"
+vim.o.shortmess = vim.o.shortmess .. "c"
 
 -- Search
 vim.o.hlsearch = true
@@ -33,14 +33,14 @@ vim.o.statusline = [[%!luaeval("require'gebhartn.statusline'.render()")]]
 -- vim.o.tabline = [[%!luaeval("require'gebhartn.tabline'.render()")]]
 
 -- Better display
-vim.wo.signcolumn = 'no'
+vim.wo.signcolumn = "no"
 vim.o.cmdheight = 2
 vim.o.hidden = true
 vim.o.pumheight = 10
 
 -- File types
-vim.o.encoding = 'utf8'
-vim.o.ffs = 'unix,dos,mac'
+vim.o.encoding = "utf8"
+vim.o.ffs = "unix,dos,mac"
 
 -- Hover update debouncer
 vim.o.updatetime = 300
@@ -58,11 +58,11 @@ vim.o.magic = true
 
 -- List characters
 vim.wo.list = true
-vim.o.listchars = string.format('tab:» ,extends:›,precedes:‹,nbsp:·,trail:·')
-vim.o.fillchars = vim.o.fillchars .. string.format('vert: ,eob: ')
+vim.o.listchars = string.format("tab:» ,extends:›,precedes:‹,nbsp:·,trail:·")
+vim.o.fillchars = vim.o.fillchars .. string.format("vert: ,eob: ")
 
 -- System clipboard
-vim.o.clipboard = vim.o.clipboard .. 'unnamedplus'
+vim.o.clipboard = vim.o.clipboard .. "unnamedplus"
 
 -- Misc
 vim.wo.wrap = false

@@ -1,10 +1,10 @@
-local lsp = require 'lspconfig'
+local lsp = require "lspconfig"
 
 local M = {}
 
 function goimports(timeoutms)
-    local context = { source = { organizeImports = true } }
-    vim.validate { context = { context, "t", true } }
+    local context = {source = {organizeImports = true}}
+    vim.validate {context = {context, "t", true}}
     local params = vim.lsp.util.make_range_params()
     params.context = context
 
@@ -35,13 +35,13 @@ function M.setup(lsp_opts)
         end,
         cmd = {"gopls", "serve"},
         settings = {
-        hoverKind = "FullDocumentation",
-        gopls = {
-            analyses = {
-                unusedparams = true,
-            },
-                staticcheck = true,
-            },
+            hoverKind = "FullDocumentation",
+            gopls = {
+                analyses = {
+                    unusedparams = true
+                },
+                staticcheck = true
+            }
         }
     }
 end

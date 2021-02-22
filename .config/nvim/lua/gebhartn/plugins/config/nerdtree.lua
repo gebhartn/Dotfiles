@@ -8,4 +8,4 @@ vim.g.NERDTreeDirArrowExpandable = "•"
 vim.g.NERDTreeDirArrowCollapsible = "•"
 vim.g.NERDTreeHighlightCursorline = 0
 vim.g.NERDTreeWinSize = 31
-vim.g.NERDTreeStatusline = '%#NonText#'
+vim.g.NERDTreeStatusline = "%#NonText#"

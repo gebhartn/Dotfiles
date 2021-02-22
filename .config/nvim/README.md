@@ -113,8 +113,8 @@ You'll have to initialize a git repository in the $PLUG directory before these s
     - maybe hotkeys for shit like storybook tab, log tab, etc.
 - ~~sumneko's language server doesn't work but it's not like I care~~ it's working but formatting is busted
 - lua format ain't it, chief -- this nightmare never ends
+    - remove the hacky shell format keybind
 - efm is basically just a glorified wrapper around eslint/prettier/(feat: json), should i even be using this?
     - as an aside, the ts language server is horrible and has cracked native linting/configuration defaults that need to be explicitly disabled
-
 - hardly using the lsp-status diagnostics, might be a better way to get this info
 - efm seems to hang when exiting typescript projects
