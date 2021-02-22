@@ -109,7 +109,7 @@ You'll have to initialize a git repository in the $PLUG directory before these w
 
 
 ## TODO
-- sumneko's language server doesn't work but it's not like I care
+- ~~sumneko's language server doesn't work but it's not like I care~~
 - efm is basically just a glorified wrapper around eslint/prettier, should i even be using this?
     - as an aside, the ts language server is horrible and has cracked native linting/configuration defaults that need to be explicitly disabled
 - hardly using the lsp-status diagnostics, might be a better way

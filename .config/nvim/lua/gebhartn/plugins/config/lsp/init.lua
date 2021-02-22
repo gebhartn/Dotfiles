@@ -63,7 +63,7 @@ require (current_path .. '.sumneko_lua').setup {
     capabilities = lsp_status.capabilities,
 }
 
--- Linting
+--Linting
 require (current_path .. '.efm').setup {
     on_attach = on_attach,
     capabilities = lsp_status.capabilities,
