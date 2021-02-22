@@ -21,6 +21,7 @@ All of my plugins are managed by the native neovim package manager, but at the t
 
 ## TODO
 - sumneko's language server doesn't work but it's not like I care
-- efm is basically just a glorified wrapper around eslint/prettier
+- efm is basically just a glorified wrapper around eslint/prettier, should i even be using this?
+    - as an aside, the ts language server is horrible and has cracked native linting/configuration defaults that need to be explicitly disabled
 - hardly using the lsp-status diagnostics, might be a better way
 - efm seems to hang when exiting typescript projects
