@@ -27,7 +27,7 @@ At the time of writing, I am using the following:
 
 You can read more about this with `:h packages`
 
-I use some bash scripts to manage my plugins, define a $PLUG variable in your shrc and use git submodules to manage the installation and updates of various plugins. These can be found in the [bin][/bin] directory.
+I use some bash scripts to manage my plugins, define a $PLUG variable in your shrc and use git submodules to manage the installation and updates of various plugins. These can be found in the [bin][bin] directory.
 
 An example $PLUG variable:
 
@@ -44,3 +44,4 @@ You'll have to initialize a git repository in the $PLUG directory before these s
 
 [coc]: https://github.com/neoclide/coc.nvim
 [ycm]: https://github.com/ycm-core/YouCompleteMe
+[bin]: /bin
