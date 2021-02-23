@@ -1,0 +1,30 @@
+#!/bin/sh
+
+#
+# avp - add vim plugin
+#
+
+add_plugin() {
+    (cd $PLUG; git submodule add "$1" plugins/start/"$2")
+}
+
+main() {
+    [ -z "$PLUG" ] && {
+        printf '%s\n' "PLUG is not set."
+        exit 1
+    }
+
+    [ "$1" ] || {
+        printf '%s\n' "No plugin repository specified"
+        exit 1
+    }
+
+    [ "$2" ] || {
+        printf '%s\n' "No plugin name specified"
+        exit 1
+    }
+
+    add_plugin "$@"
+}
+
+main "$@"

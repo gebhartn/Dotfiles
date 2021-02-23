@@ -26,10 +26,6 @@ function M.setup(lsp_opts)
         capabilities = lsp_opts.capabilities,
         on_attach = function(client)
             lsp_opts.on_attach(client)
-            vim.cmd [[augroup Format]]
-            vim.cmd [[autocmd! * <buffer>]]
-            vim.cmd [[autocmd BufWritePost <buffer> lua goimports(1000)]]
-            vim.cmd [[augroup END]]
 
             vim.wo.list = false
         end,

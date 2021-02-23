@@ -5,6 +5,20 @@ local M = {}
 local sumneko_root_path = os.getenv("HOME") .. "/packages/lua-language-server/"
 local sumneko_binary = sumneko_root_path .. "bin/Linux/lua-language-server"
 
+local function get_lua_runtime()
+    local result = {}
+    for _, path in pairs(vim.api.nvim_list_runtime_paths()) do
+        local lua_path = path .. "/lua/"
+        if vim.fn.isdirectory(lua_path) then
+            result[lua_path] = true
+        end
+    end
+    result[vim.fn.expand("$VIMRUNTIME/lua")] = true
+    result[vim.fn.expand("~/build/neovim/src/nvim/lua")] = true
+
+    return result
+end
+
 function M.setup(lsp_opts)
     lsp.sumneko_lua.setup {
         on_attach = function(client)
@@ -20,23 +34,17 @@ function M.setup(lsp_opts)
             Lua = {
                 runtime = {
                     version = "LuaJIT",
-                    path = {
-                        vim.split(package.path, ";"),
-                        "?.lua",
-                        "?/init.lua"
-                    }
                 },
                 diagnostics = {
                     enable = true,
                     globals = {
                         "vim"
-                    }
+                    },
                 },
                 workspace = {
-                    library = {
-                        [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                        [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
-                    }
+                    library = get_lua_runtime(),
+                    maxPreload = 1000,
+                    preloadFileSize = 1000,
                 }
             }
         }

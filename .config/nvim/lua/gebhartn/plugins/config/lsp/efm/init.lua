@@ -3,6 +3,8 @@ local current_path = (...):gsub("%.init$", "")
 local eslint = require(current_path .. ".linters.eslint")
 local prettier = require(current_path .. ".formatters.prettier")
 local luafmt = require(current_path .. ".formatters.lua_format")
+local golint = require(current_path .. ".linters.golint")
+local goimports = require(current_path .. ".linters.goimports")
 local lsp = require "lspconfig"
 
 local format_options_prettier = {
@@ -21,22 +23,6 @@ vim.g.json = format_options_prettier
 
 local M = {}
 
-local function eslint_config_exists()
-    local eslintrc = vim.fn.glob(".eslintrc*", 0, 1)
-
-    if not vim.tbl_isempty(eslintrc) then
-        return true
-    end
-
-    if vim.fn.filereadable("package.json") == 1 then
-        if vim.fn.json_decode(vim.fn.readfile("package.json"))["eslintConfig"] then
-            return true
-        end
-    end
-
-    return false
-end
-
 function M.setup(lsp_opts)
     lsp.efm.setup {
         capabilities = lsp_opts.capabilities,
@@ -45,23 +31,18 @@ function M.setup(lsp_opts)
             lsp_opts.on_attach(client)
         end,
         init_options = {documentFormatting = true},
-        rootMarkers = {".git/"},
-        root_dir = function()
-            if not eslint_config_exists() then
-                return nil
-            end
-            return vim.fn.getcwd()
-        end,
         settings = {
+            rootMarkers = {".git/"},
             languages = {
+                go = {goimports, golint},
+                lua = {luafmt},
                 json = {prettier},
                 typescript = {prettier, eslint},
                 javascript = {prettier, eslint},
                 typescriptreact = {prettier, eslint},
                 javascriptreact = {prettier, eslint},
                 ["javascript.jsx"] = {prettier, eslint},
-                ["typescript.tsx"] = {prettier, eslint},
-                lua = {luafmt}
+                ["typescript.tsx"] = {prettier, eslint}
             }
         }
     }
