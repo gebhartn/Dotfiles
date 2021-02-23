@@ -44,4 +44,4 @@ You'll have to initialize a git repository in the $PLUG directory before these s
 
 [coc]: https://github.com/neoclide/coc.nvim
 [ycm]: https://github.com/ycm-core/YouCompleteMe
-[bin]: /bin
+[bin]: .config/nvim/bin
