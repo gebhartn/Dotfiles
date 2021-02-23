@@ -27,7 +27,7 @@ At the time of writing, I am using the following:
 
 You can read more about this with `:h packages`
 
-I use some bash scripts to manage my plugins, define a $PLUG variable in your shrc and use git submodules to manage the installation and updates of various plugins. These can be found in the [bin][bin] directory.
+Define a $PLUG variable in your shrc and use git submodules to manage the installation and updates of various plugins. I use some scripts to manage installing/updating everything, these can be found in the [bin][bin] directory.
 
 An example $PLUG variable:
 
