@@ -22,12 +22,13 @@ At the time of writing, I am using the following:
 - vim-commentary [filetype specific commenting rules]
 - vim-surround [wrap things in quotes, tags, etc.]
 - vim-noctu [colorscheme]
+- tabulous [aesthetic tabline]
 
 ### How to manage plugins this way
 
 You can read more about this with `:h packages`
 
-Define a $PLUG variable in your shrc and use git submodules to manage the installation and updates of various plugins. I use some scripts to manage installing/updating everything, these can be found in the [bin][bin] directory.
+I use some bash scripts to manage my plugins, define a $PLUG variable in your shrc and use git submodules to manage the installation and updates of various plugins. These can be found in the [bin][/bin] directory.
 
 An example $PLUG variable:
 
@@ -38,10 +39,5 @@ export PLUG='~/.local/share/nvim/site/pack/'
 
 You'll have to initialize a git repository in the $PLUG directory before these scripts will work.
 
-## TODO
-- Extend the tabline to multiplex terminal instances
-- Hardly using lsp-status diagnostics, might be a better way to get this info.
-
 [coc]: https://github.com/neoclide/coc.nvim
 [ycm]: https://github.com/ycm-core/YouCompleteMe
-[bin]: ./bin

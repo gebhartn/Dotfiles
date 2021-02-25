@@ -29,9 +29,6 @@ vim.o.showmode = false
 vim.o.laststatus = 2
 vim.o.statusline = [[%!luaeval("require'gebhartn.statusline'.render()")]]
 
--- Tabline
--- vim.o.tabline = [[%!luaeval("require'gebhartn.tabline'.render()")]]
-
 -- Better display
 vim.wo.signcolumn = "no"
 vim.o.cmdheight = 2

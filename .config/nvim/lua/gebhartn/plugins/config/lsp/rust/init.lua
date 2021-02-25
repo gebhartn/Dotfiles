@@ -5,7 +5,10 @@ local M = {}
 function M.setup(lsp_opts)
     lsp.rust_analyzer.setup(
         {
-            on_attach = lsp_opts.on_attach,
+            on_attach = function(client)
+                lsp_opts.on_attach(client)
+                client.resolved_capabilities.document_formatting = false
+            end,
             capabilities = lsp_opts.capabilities,
             settings = {
                 ["rust-analyzer"] = {

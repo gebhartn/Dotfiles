@@ -18,7 +18,7 @@ utils.inoremap("jk", "<ESC>")
 
 -- Map escape from terminal input to Normal mode
 utils.tnoremap("<ESC>", [[<C-\><C-n>]])
-utils.tnoremap("<C-[>", [[<C-\><C-n>]])
+utils.tnoremap("jk", [[<C-\><C-n>]])
 
 -- Hide highlights
 utils.nnoremap("<leader><CR>", ":noh<CR>")
@@ -55,3 +55,7 @@ utils.nnoremap("<leader>n", ':e <C-R>=expand("%:p:h") . "/" <CR>')
 
 -- Ends my suffering
 utils.nnoremap("q:", ":q")
+
+-- Tabs
+utils.nnoremap("<C-t>", ":tabnew<CR>")
+utils.nnoremap("<leader>t", ":call g:tabulous#renameTab()<CR>")

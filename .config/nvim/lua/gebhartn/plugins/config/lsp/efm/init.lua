@@ -1,10 +1,13 @@
 local current_path = (...):gsub("%.init$", "")
 
 local eslint = require(current_path .. ".linters.eslint")
-local prettier = require(current_path .. ".formatters.prettier")
-local luafmt = require(current_path .. ".formatters.lua_format")
 local golint = require(current_path .. ".linters.golint")
 local goimports = require(current_path .. ".linters.goimports")
+local rustfmt = require(current_path .. ".linters.rustfmt")
+
+local prettier = require(current_path .. ".formatters.prettier")
+local luafmt = require(current_path .. ".formatters.lua_format")
+local clangfmt = require(current_path .. ".formatters.clang_format")
 local lsp = require "lspconfig"
 
 local format_options_prettier = {
@@ -34,7 +37,9 @@ function M.setup(lsp_opts)
         settings = {
             rootMarkers = {".git/"},
             languages = {
-                go = {goimports, golint},
+                rust = {rustfmt},
+                proto = {clangfmt},
+                go = {golint, goimports},
                 lua = {luafmt},
                 json = {prettier},
                 typescript = {prettier, eslint},

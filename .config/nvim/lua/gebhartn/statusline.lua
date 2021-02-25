@@ -2,20 +2,21 @@ local lsp_status = require "lsp-status"
 
 local M = {}
 
+local mode_map = {
+    ["n"] = "normal",
+    ["v"] = "visual",
+    ["V"] = "visual",
+    [""] = "visual",
+    ["i"] = "insert",
+    ["ic"] = "insert",
+    ["ix"] = "insert",
+    ["R"] = "replace",
+    ["Rv"] = "replace",
+    ["c"] = "command"
+}
+
 -- Current mode
 local function cursor_mode()
-    local mode_map = {
-        ["n"] = "normal",
-        ["v"] = "visual",
-        ["V"] = "visual",
-        [""] = "visual",
-        ["i"] = "insert",
-        ["ic"] = "insert",
-        ["ix"] = "insert",
-        ["R"] = "replace",
-        ["Rv"] = "replace",
-        ["c"] = "command"
-    }
     local m = vim.api.nvim_get_mode()
     local current_mode = mode_map[m.mode]
 
@@ -31,8 +32,7 @@ end
 -- Linter status
 local function lsp()
     local diagnostics = lsp_status.diagnostics()
-    local result =
-        string.format("%d %d ", diagnostics.errors, diagnostics.warnings)
+    local result = string.format("%d %d ", diagnostics.errors, diagnostics.warnings)
     local should_count = diagnostics.errors > 0 or diagnostics.warnings > 0
 
     return should_count and result or "LSP "
